@@ -81,5 +81,7 @@ public class Ch2 {
 	}
 	
 	//2.5
-	
+	public Node addnum(Node n1, Node n2){
+		
+	}
 }
