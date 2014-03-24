@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 
 public class Ch2 {
 	//2.1
@@ -148,5 +150,31 @@ public class Ch2 {
     }
     
     //2.7
-    
+    //odd list 1->2->2->3->2->2->1
+    //even list  1->2->3->3->2->1
+    //assume list length is not provided
+    public boolean detectPalindrome(Node head){
+    	Node slow=head;
+    	Node fast=head;
+    	Stack<Integer> s = new Stack<Integer>();
+    	
+    	while(fast!=null&&fast.next!=null){
+    		s.push(slow.data);
+    		slow=slow.next;
+    		fast=fast.next.next;//X2 speed
+    	}
+    	if (fast!=null){
+    		slow=slow.next;
+    	}
+    	
+    	while(!s.empty()){
+    		int val=s.pop().intValue();
+    		int cur=slow.data;
+    		if (cur!=val){
+    			return false;
+    		}
+    		slow=slow.next;
+    	}
+    	return true;
+    }
 }
