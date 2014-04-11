@@ -2,6 +2,29 @@ import java.util.Stack;
 
 
 public class Ch2 {
+	
+	//MeridianLink Test
+	public Node Remove( Node firstNode, int[] removalRequests, int removalRequests_Length ) 
+	{ 
+		if (firstNode==null){
+			return null;
+		}
+		Node head = firstNode;
+		Node cur = firstNode;
+		int node_count=0;
+		for (int i=0; i< removalRequests_Length; i++){
+			int target=removalRequests[i];
+			while (node_count!=target-1){//run to the node before target node
+				cur=cur.next;
+				node_count++;
+			}
+			cur.next=cur.next.next;
+			node_count++;
+		}
+		return head;
+	} 
+	
+	
 	//2.1
 	public void deleteDups(Node root){
 		if (root==null||root.next==null){
